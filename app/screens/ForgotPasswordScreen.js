@@ -16,7 +16,7 @@ import colors from './../config/colors';
 import CustomButton from '../components/CustomButton';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const LoginScreen = ({navigation}) => {
+const ForgotPasswordScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(true);
@@ -30,7 +30,7 @@ const LoginScreen = ({navigation}) => {
           source={require('../assets/images/logo.png')}
           style={styles.logo}
         />
-        <Text style={styles.logoText}>Sign in</Text>
+        <Text style={styles.logoText}>Forgot Password ?</Text>
         <Text style={styles.emailLabel}>Email</Text>
         <View style={styles.Wrapper}>
           <TextInput
@@ -46,47 +46,14 @@ const LoginScreen = ({navigation}) => {
             textContentType="emailAddress"
           />
         </View>
+        <Text>
+          Please enter you email address to get a link to change your password.
+        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.link}>Go to Login</Text>
+        </TouchableOpacity>
 
-        <Text style={styles.passwordLabel}>Password</Text>
-
-        <View style={styles.Wrapper}>
-          <TextInput
-            onChangeText={text => {
-              setPassword(text);
-            }}
-            style={styles.passwordInput}
-            placeholder="Enter your password"
-            autoCapitalize="none"
-            autoCorrect={false}
-            secureTextEntry={showPassword}
-            value={password}
-          />
-          <MaterialCommunityIcons
-            name={showPassword ? 'eye-off' : 'eye'}
-            size={25}
-            color={colors.primary}
-            onPress={() => {
-              setShowPassword(!showPassword);
-            }}
-          />
-        </View>
-        <View style={styles.linkWrapper}>
-          <View style={styles.rememberWrapper}>
-            <CheckBox
-              disabled={false}
-              value={toggleCheckBox}
-              onValueChange={newValue => setToggleCheckBox(newValue)}
-            />
-            <Text style={{color: colors.primary}}>Remember Me</Text>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('Forgot')}>
-            <Text style={{marginVertical: 20, color: colors.yellow}}>
-              Forgot Password?
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        <CustomButton title="Login" />
+        <CustomButton title="Send Email" />
       </View>
     </LinearGradient>
   );
@@ -106,7 +73,11 @@ var styles = StyleSheet.create({
     padding: 30,
     marginBottom: 30,
   },
-
+  link: {
+    marginVertical: 20,
+    color: colors.link,
+    textDecorationLine: 'underline',
+  },
   logo: {
     height: 100,
     width: 100,
@@ -157,4 +128,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default ForgotPasswordScreen;

@@ -20,6 +20,7 @@ const colors = {
   grayIcon: '#CDCDD2',
   mainIcon: '#FC6D3F',
   cardBorder: '#F5F5F5',
+  yellow: '#c4c406',
 };
 
 export default colors;
