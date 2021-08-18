@@ -1222,6 +1222,14 @@
   "resolved" "https://registry.npmjs.org/@react-navigation/elements/-/elements-1.1.0.tgz"
   "version" "1.1.0"
 
+"@react-navigation/native-stack@^6.0.6":
+  "integrity" "sha512-Gt67e6tENeimF/3CSY0ppGclXYaOXRll+4nvTWUZjmJSio6EYADM/+c8EJoezYee192pTTf3+p0S9hGsabrxxQ=="
+  "resolved" "https://registry.npmjs.org/@react-navigation/native-stack/-/native-stack-6.0.6.tgz"
+  "version" "6.0.6"
+  dependencies:
+    "@react-navigation/elements" "^1.1.0"
+    "warn-once" "^0.1.0"
+
 "@react-navigation/native@^6.0.0", "@react-navigation/native@^6.0.2":
   "integrity" "sha512-HDqEwgvQ4Cu16vz8jQ55lfyNK9CGbECI1wM9cPOcUa+gkOQEDZ/95VFfFjGGflXZs3ybPvGXlMC4ZAyh1CcO6w=="
   "resolved" "https://registry.npmjs.org/@react-navigation/native/-/native-6.0.2.tgz"
@@ -5663,6 +5671,11 @@
     "invariant" "^2.2.4"
     "prop-types" "^15.7.2"
 
+"react-native-linear-gradient@^2.5.6":
+  "integrity" "sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg=="
+  "resolved" "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz"
+  "version" "2.5.6"
+
 "react-native-reanimated@>= 1.0.0":
   "integrity" "sha512-lOJDd+5w1gY6DHGXG2jD1dsjzQmXQ2699HUc3IztvI2WP4zUT+UAA+zSG+5JiBS5DUnTL8YhhkmUQmr1KNGO5w=="
   "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-2.2.0.tgz"
@@ -5673,19 +5686,19 @@
     "mockdate" "^3.0.2"
     "string-hash-64" "^1.0.3"
 
-"react-native-safe-area-context@>= 3.0.0":
+"react-native-safe-area-context@^3.3.0", "react-native-safe-area-context@>= 3.0.0":
   "integrity" "sha512-IrCNx56LO9RJ75yCf2CSSO1ceLj3mvxTAF+HWnehaeRIfF4pIcIn3WEUlXulFiha641OKS5X0+1XZCbbQ7pITA=="
   "resolved" "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.3.0.tgz"
   "version" "3.3.0"
 
-"react-native-screens@>= 3.0.0":
+"react-native-screens@^3.5.0", "react-native-screens@>= 3.0.0":
   "integrity" "sha512-xew4x0YX0RaDduNYM4gZXkphPwGZIbbu9fTU85xOtT1tOUPm3OU4pFMiN6PF54haMCsaMQRvdOXvLicUVRiptA=="
   "resolved" "https://registry.npmjs.org/react-native-screens/-/react-native-screens-3.5.0.tgz"
   "version" "3.5.0"
   dependencies:
     "warn-once" "^0.1.0"
 
-"react-native@*", "react-native@>=0.65.0-rc.0 || 0.0.0-*", "react-native@0.65.0":
+"react-native@*", "react-native@>=0.55", "react-native@>=0.65.0-rc.0 || 0.0.0-*", "react-native@0.65.0":
   "integrity" "sha512-swtTbgcz7477PFllfDPvJ6Mx7dm2L1t76wlxsfCEFszl/jqxtdCXHb1K7AXCJDRHaEWVDJxYsU6DUDjzDqfCqQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.65.0.tgz"
   "version" "0.65.0"

@@ -1,11 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {StatusBar} from 'react-native';
+
+import MainApp from './app/index';
 
 const App = () => {
   return (
-    <View>
-      <Text>Hello world</Text>
-    </View>
+    <>
+      <StatusBar hidden />
+      <MainApp />
+    </>
   );
 };
 
