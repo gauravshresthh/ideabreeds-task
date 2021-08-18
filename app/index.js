@@ -4,9 +4,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import AuthNavigator from './navigation/AuthNavigator';
 
 
+
 const MainApp = () => {
   return (
     <NavigationContainer>
+ 
       <AuthNavigator/>
     </NavigationContainer>
   );

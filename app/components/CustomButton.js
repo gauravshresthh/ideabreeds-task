@@ -8,14 +8,14 @@ import {
 
 import colors from '../config/colors';
 
-const CustomButton = ({title, onPress, color = 'buttonMain',textColor="white", loading}) => {
+const CustomButton = ({title, onPress, color = 'buttonMain',textColor="white", loading, ...otherProps}) => {
   if (loading) {
     return <ActivityIndicator size="large" color="#00ff00" />;
   } else {
     return (
       <TouchableOpacity
         style={[styles.button, {backgroundColor: colors[color]}]}
-        onPress={onPress}>
+        onPress={onPress} {...otherProps}>
         <Text style={styles.text,{color:colors[textColor]}}>{title}</Text>
       </TouchableOpacity>
     );

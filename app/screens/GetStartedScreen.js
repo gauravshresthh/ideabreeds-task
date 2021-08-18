@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import colors from './../config/colors';
 import CustomButton from '../components/CustomButton'
 
-const GetStartedScreen = () => {
+const GetStartedScreen = ({navigation}) => {
     return (
         <LinearGradient colors={['#eafffd', '#4cc1d4', '#129aa2']} style={styles.linearGradient}>
             <View style={styles.container}>
@@ -13,8 +13,8 @@ const GetStartedScreen = () => {
                  <Text style={styles.logoText}>OPTONOME</Text>
                  <Text style={styles.logoSubText}>Communication made easy everywhere</Text>
                  <Image source={require('../assets/images/2.png')} style={styles.banner} />
-                <CustomButton title="Get Started"/>
-                <CustomButton title="Sign in" color="white" textColor="primary"/>
+                <CustomButton title="Get Started" onPress={() => navigation.navigate('Login')}/>
+                <CustomButton title="Sign in" color="white" textColor="primary" onPress={() => navigation.navigate('Login')}/>
             </View>
        </LinearGradient>
     )
@@ -23,15 +23,14 @@ const GetStartedScreen = () => {
 var styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5
+   
   },
   container:{
       flex:1,
       justifyContent:"center",
       alignItems:"center",
-      padding:20
+      padding:30,
+      marginBottom:30
   },
   buttonText: {
     fontSize: 18,
@@ -41,8 +40,8 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   }, 
   logo: {
-    height: 120,
-    width: 120,
+    height: 100,
+    width: 100,
   },
   logoText:{
       fontSize:20,

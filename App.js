@@ -1,12 +1,13 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+
 
 import MainApp from './app/index';
+import {StatusBar} from 'react-native';
 
 const App = () => {
   return (
     <>
-      <StatusBar hidden />
+     <StatusBar hidden={true} />
       <MainApp />
     </>
   );
