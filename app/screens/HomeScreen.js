@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import colors from './../config/colors';
 import CustomButton from '../components/CustomButton';
 
-const GetStartedScreen = ({navigation}) => {
+const HomeScreen = ({navigation}) => {
   return (
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
@@ -19,6 +19,8 @@ const GetStartedScreen = ({navigation}) => {
         <Text style={styles.logoSubText}>
           Communication made easy everywhere
         </Text>
+
+        <Text style={styles.logoText}>Home Screen</Text>
         <Image
           source={require('../assets/images/2.png')}
           style={styles.banner}
@@ -73,4 +75,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default GetStartedScreen;
+export default HomeScreen;

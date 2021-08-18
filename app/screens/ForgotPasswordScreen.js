@@ -18,9 +18,15 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const ForgotPasswordScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [toggleCheckBox, setToggleCheckBox] = useState(true);
-  const [showPassword, setShowPassword] = useState(true);
+
+  const [validationError, setValidationError] = useState('');
+
+  const sendEmailHandler = () => {
+    if (!email) {
+      setValidationError('Email is required !');
+      return;
+    }
+  };
   return (
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
@@ -46,14 +52,27 @@ const ForgotPasswordScreen = ({navigation}) => {
             textContentType="emailAddress"
           />
         </View>
-        <Text>
+        <Text style={styles.emailHint}>
           Please enter you email address to get a link to change your password.
         </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text style={styles.link}>Go to Login</Text>
         </TouchableOpacity>
 
-        <CustomButton title="Send Email" />
+        <CustomButton title="Send Email" onPress={sendEmailHandler} />
+        {validationError ? (
+          <TouchableOpacity style={styles.errorContainer}>
+            <Text style={styles.errorText}> {validationError}</Text>
+            <MaterialCommunityIcons
+              name="close"
+              size={25}
+              color={colors.white}
+              onPress={() => {
+                setValidationError('');
+              }}
+            />
+          </TouchableOpacity>
+        ) : null}
       </View>
     </LinearGradient>
   );
@@ -62,9 +81,6 @@ const ForgotPasswordScreen = ({navigation}) => {
 var styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5,
   },
   container: {
     flex: 1,
@@ -91,21 +107,17 @@ var styles = StyleSheet.create({
   textInput: {
     flex: 1,
   },
-  passwordInput: {
-    flex: 1,
+  emailHint: {
+    textAlign: 'auto',
   },
+
   emailLabel: {
     color: colors.primary,
     fontSize: 17,
     fontWeight: '600',
     alignSelf: 'flex-start',
   },
-  passwordLabel: {
-    color: colors.primary,
-    fontSize: 17,
-    fontWeight: '600',
-    alignSelf: 'flex-start',
-  },
+
   Wrapper: {
     flexDirection: 'row',
     backgroundColor: colors.placeholder,
@@ -116,15 +128,15 @@ var styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 5,
   },
-  linkWrapper: {
+  errorContainer: {
+    backgroundColor: colors.danger,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
   },
-  rememberWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 50,
+  errorText: {
+    color: colors.white,
   },
 });
 

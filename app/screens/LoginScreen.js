@@ -21,6 +21,24 @@ const LoginScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(true);
   const [showPassword, setShowPassword] = useState(true);
+  const [validationError, setValidationError] = useState('');
+
+  const VALID_EMAIL = 'gauravshresthh@gmail.com';
+  const VALID_PASSWORD = 'gaurav12345';
+
+  const loginHandler = () => {
+    if (!email || !password) {
+      setValidationError('Email and password are required !');
+      return;
+    }
+    if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+      navigation.navigate('Home');
+      return;
+    } else {
+      setValidationError('Invalid Email or Password');
+    }
+  };
+
   return (
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
@@ -86,7 +104,20 @@ const LoginScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <CustomButton title="Login" />
+        <CustomButton title="Login" onPress={loginHandler} />
+        {validationError ? (
+          <TouchableOpacity style={styles.errorContainer}>
+            <Text style={styles.errorText}> {validationError}</Text>
+            <MaterialCommunityIcons
+              name="close"
+              size={25}
+              color={colors.white}
+              onPress={() => {
+                setValidationError('');
+              }}
+            />
+          </TouchableOpacity>
+        ) : null}
       </View>
     </LinearGradient>
   );
@@ -95,9 +126,6 @@ const LoginScreen = ({navigation}) => {
 var styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5,
   },
   container: {
     flex: 1,
@@ -154,6 +182,16 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginRight: 50,
+  },
+  errorContainer: {
+    backgroundColor: colors.danger,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: colors.white,
   },
 });
 
