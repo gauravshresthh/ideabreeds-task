@@ -15,10 +15,22 @@ const Tab = createBottomTabNavigator();
 
 const Drawer = createDrawerNavigator();
 
-const TabsNavigator = () => (
+const TabsNavigator = ({navigation}) => (
   <Tab.Navigator
     screenOptions={{
-      headerShown: false,
+      // headerShown: false,
+
+      headerLeft: () => (
+        <MaterialCommunityIcons
+          name="menu"
+          size={25}
+          style={{marginLeft: 20}}
+          color={colors.primary}
+          onPress={() => {
+            navigation.toggleDrawer();
+          }}
+        />
+      ),
       tabBarActiveTintColor: colors.tabBackground,
       tabBarActiveBackgroundColor: colors.white,
       tabBarInactiveBackgroundColor: colors.tabBackground,
@@ -54,7 +66,7 @@ const TabsNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="Bank"
+      name="Teams"
       component={TeamsScreen}
       options={{
         tabBarLabel: 'Teams',

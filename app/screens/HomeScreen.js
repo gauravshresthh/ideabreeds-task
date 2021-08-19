@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import CustomNavbar from '../components/CustomNavbar';
 
 import colors from './../config/colors';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 const HomeScreen = ({navigation}) => {
   const handlePress = () => {
@@ -13,21 +14,17 @@ const HomeScreen = ({navigation}) => {
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
       style={styles.linearGradient}>
-      <CustomNavbar onPress={handlePress} title="Home" />
+      {/* <CustomNavbar onPress={handlePress} title="Home" /> */}
       <View style={styles.container}>
-        <Image
-          source={require('../assets/images/logo.png')}
-          style={styles.logo}
-        />
-        <Text style={styles.logoText}>OPTONOME</Text>
-        <Text style={styles.logoSubText}>
-          Communication made easy everywhere
-        </Text>
-
-        <Text style={styles.logoText}>Home Screen</Text>
-        <Image
-          source={require('../assets/images/2.png')}
-          style={styles.banner}
+        <MapView
+          provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+          style={styles.map}
+          region={{
+            latitude: 26.537166427314844,
+            longitude: 88.08079099916846,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
+          }}
         />
       </View>
     </LinearGradient>
@@ -39,11 +36,11 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 30,
-    marginBottom: 30,
+    ...StyleSheet.absoluteFillObject,
+    height: '100%',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
   },
   buttonText: {
     fontSize: 18,

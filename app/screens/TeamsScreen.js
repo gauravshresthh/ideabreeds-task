@@ -13,7 +13,7 @@ const TeamsScreen = ({navigation}) => {
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
       style={styles.linearGradient}>
-      <CustomNavbar onPress={handlePress} title="Teams" />
+      {/* <CustomNavbar onPress={handlePress} title="Teams" /> */}
       <View style={styles.container}>
         <Image
           source={require('../assets/images/logo.png')}

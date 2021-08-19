@@ -13,7 +13,7 @@ const ChatsScreen = ({navigation}) => {
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
       style={styles.linearGradient}>
-      <CustomNavbar onPress={handlePress} title="Chats" />
+      {/* <CustomNavbar onPress={handlePress} title="Chats" /> */}
       <View style={styles.container}>
         <Image
           source={require('../assets/images/logo.png')}
