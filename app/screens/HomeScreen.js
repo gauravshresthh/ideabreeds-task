@@ -13,7 +13,7 @@ const HomeScreen = ({navigation}) => {
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
       style={styles.linearGradient}>
-      <CustomNavbar onPress={handlePress} />
+      <CustomNavbar onPress={handlePress} title="Home" />
       <View style={styles.container}>
         <Image
           source={require('../assets/images/logo.png')}

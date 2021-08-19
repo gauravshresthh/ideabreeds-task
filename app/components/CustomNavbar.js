@@ -4,13 +4,13 @@ import colors from './../config/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const CustomNavbar = props => {
-  const {onPress} = props;
+  const {title, onPress} = props;
   return (
     <View style={styles.navBar}>
       <TouchableOpacity onPress={onPress}>
         <MaterialCommunityIcons name="menu" size={25} color={colors.primary} />
       </TouchableOpacity>
-      <Text style={styles.navBarText}>Home</Text>
+      <Text style={styles.navBarText}>{title}</Text>
     </View>
   );
 };
