@@ -24,5 +24,6 @@ const styles = StyleSheet.create({
   customListText: {
     marginLeft: 30,
     color: colors.danger,
+    fontWeight: '700',
   },
 });

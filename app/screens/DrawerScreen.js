@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, View, Switch} from 'react-native';
 import {Avatar, Divider} from 'react-native-paper';
 import colors from './../config/colors';
 import {AuthContext} from '../navigation/context';
@@ -11,6 +11,9 @@ const DrawerScreen = () => {
   const handlePress = () => {
     signOut();
   };
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <View style={styles.container}>
       <View style={styles.userInfoWrapper}>
@@ -36,7 +39,17 @@ const DrawerScreen = () => {
       <Divider />
       <CustomListItem iconName="comment-edit" text="Set status message" />
       <CustomListItem iconName="face-profile" text="Profile" />
-      <CustomListItem iconName="bell" text="Notifications" />
+      <View style={styles.notification}>
+        <CustomListItem iconName="bell" text="Notifications" />
+        <Switch
+          trackColor={{false: '#767577', true: '#81b0ff'}}
+          thumbColor={isEnabled ? colors.primary : colors.white}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
+        />
+      </View>
+
       <CustomListItem iconName="calendar" text="Events" />
       <CustomListItem iconName="account-settings" text="Settings" />
       <Divider />
@@ -84,10 +97,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 20,
+    marginBottom: 10,
   },
   status: {
     marginLeft: 30,
     fontWeight: '700',
-    marginBottom: 10,
+  },
+  notification: {
+    flexDirection: 'row',
   },
 });

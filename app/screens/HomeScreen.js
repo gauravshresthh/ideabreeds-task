@@ -1,15 +1,19 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-// import Logo from '../app/assets/images/Favicon.png'
+import CustomNavbar from '../components/CustomNavbar';
+
 import colors from './../config/colors';
-import CustomButton from '../components/CustomButton';
 
 const HomeScreen = ({navigation}) => {
+  const handlePress = () => {
+    navigation.toggleDrawer();
+  };
   return (
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
       style={styles.linearGradient}>
+      <CustomNavbar onPress={handlePress} />
       <View style={styles.container}>
         <Image
           source={require('../assets/images/logo.png')}
