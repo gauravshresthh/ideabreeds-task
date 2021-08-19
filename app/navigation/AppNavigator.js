@@ -17,21 +17,17 @@ const Drawer = createDrawerNavigator();
 
 const TabsNavigator = () => (
   <Tab.Navigator
-    tabBarOptions={{
-      // showLabel: false,
-      activeBackgroundColor: colors.white,
-      activeTintColor: colors.tabBackground,
-      inactiveBackgroundColor: colors.tabBackground,
-      inactiveTintColor: colors.grayIcon,
-    }}
     screenOptions={{
       headerShown: false,
+      tabBarActiveTintColor: colors.tabBackground,
+      tabBarActiveBackgroundColor: colors.white,
+      tabBarInactiveBackgroundColor: colors.tabBackground,
+      tabBarInactiveTintColor: colors.grayIcon,
       tabBarStyle: {
         height: 75,
         paddingHorizontal: 20,
         backgroundColor: colors.tabBackground,
       },
-
       tabBarItemStyle: {
         padding: 10,
         borderBottomRightRadius: 30,

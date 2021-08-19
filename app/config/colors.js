@@ -1,6 +1,7 @@
 const colors = {
-  primary: '#3B5767',
+  primary: '#0a2f41',
   secondary: '#00CE17',
+  tertiary: '#3B5767',
   main: '#31823A',
   gray: '#4F4F4F',
   link: '#0000EE',
@@ -22,6 +23,7 @@ const colors = {
   cardBorder: '#F5F5F5',
   yellow: '#c4c406',
   tabBackground: '#0a2f41',
+  drawerBackground: '#d2f2ff',
 };
 
 export default colors;
