@@ -19,12 +19,12 @@ const HomeScreen = ({navigation}) => {
         <MapView
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={styles.map}
-          region={{
-            latitude: 26.537166427314844,
-            longitude: 88.08079099916846,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
+          // region={{
+          //   latitude: 26.537166427314844,
+          //   longitude: 88.08079099916846,
+          //   latitudeDelta: 0.015,
+          //   longitudeDelta: 0.0121,
+          // }}
         />
       </View>
     </LinearGradient>
