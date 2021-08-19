@@ -3,9 +3,14 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Avatar, Divider} from 'react-native-paper';
 import colors from './../config/colors';
 import {AuthContext} from '../navigation/context';
+import CustomListItem from '../components/CustomListItem';
+import LogoutButton from '../components/LogoutButton';
 
 const DrawerScreen = () => {
   const {signOut} = React.useContext(AuthContext);
+  const handlePress = () => {
+    signOut();
+  };
   return (
     <View style={styles.container}>
       <View style={styles.userInfoWrapper}>
@@ -26,8 +31,16 @@ const DrawerScreen = () => {
       <Divider />
       <View style={styles.row}>
         <View style={styles.circle}></View>
-        <Text>Available</Text>
+        <Text style={styles.status}>Available</Text>
       </View>
+      <Divider />
+      <CustomListItem iconName="comment-edit" text="Set status message" />
+      <CustomListItem iconName="face-profile" text="Profile" />
+      <CustomListItem iconName="bell" text="Notifications" />
+      <CustomListItem iconName="calendar" text="Events" />
+      <CustomListItem iconName="account-settings" text="Settings" />
+      <Divider />
+      <LogoutButton iconName="logout" text="Logout" onPress={handlePress} />
     </View>
   );
 };
@@ -62,11 +75,19 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   circle: {
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
     backgroundColor: colors.secondary,
     borderRadius: 50,
-    marginRight: 50,
   },
-  row: {flexDirection: 'row', alignItems: 'center',marginTop:20},
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  status: {
+    marginLeft: 30,
+    fontWeight: '700',
+    marginBottom: 10,
+  },
 });
