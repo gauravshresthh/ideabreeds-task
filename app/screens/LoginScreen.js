@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ScrollView,
   View,
@@ -15,6 +15,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import colors from './../config/colors';
 import CustomButton from '../components/CustomButton';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {AuthContext} from '../navigation/context';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -26,18 +27,26 @@ const LoginScreen = ({navigation}) => {
   const VALID_EMAIL = 'gauravshresthh@gmail.com';
   const VALID_PASSWORD = 'gaurav12345';
 
+  const {signIn} = React.useContext(AuthContext);
+
   const loginHandler = () => {
     if (!email || !password) {
       setValidationError('Email and password are required !');
       return;
     }
     if (email === VALID_EMAIL && password === VALID_PASSWORD) {
-      navigation.navigate('Home');
+      signIn();
       return;
     } else {
       setValidationError('Invalid Email or Password');
     }
   };
+
+  useEffect(() => {
+    return () => {
+      setValidationError('');
+    };
+  }, []);
 
   return (
     <LinearGradient

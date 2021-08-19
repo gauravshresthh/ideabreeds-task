@@ -1,29 +1,45 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import BankScreen from './../screens/BankScreen';
-import ClaimsScreen from './../screens/ClaimsScreen';
-
+import HomeScreen from './../screens/HomeScreen';
+import ActivityScreen from './../screens/ActivityScreen';
+import TeamsScreen from './../screens/TeamsScreen';
+import ChatsScreen from '../screens/ChatsScreen';
+import DrawerScreen from '../screens/DrawerScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import HomeNavigator from './HomeNavigator';
-import ProfileNavigator from './ProfileNavigator';
 import colors from './../config/colors';
 
 const Tab = createBottomTabNavigator();
 
-const AppNavigator = () => (
+const Drawer = createDrawerNavigator();
+
+const TabsNavigator = () => (
   <Tab.Navigator
     tabBarOptions={{
-      showLabel: false,
-      activeBackgroundColor: 'white',
-      activeTintColor: colors.secondary,
-      inactiveBackgroundColor: 'white',
+      // showLabel: false,
+      activeBackgroundColor: colors.white,
+      activeTintColor: colors.tabBackground,
+      inactiveBackgroundColor: colors.tabBackground,
       inactiveTintColor: colors.grayIcon,
+    }}
+    screenOptions={{
+      headerShown: false,
+      tabBarStyle: {
+        height: 75,
+        paddingHorizontal: 20,
+        backgroundColor: colors.tabBackground,
+      },
+
+      tabBarItemStyle: {
+        padding: 10,
+        borderBottomRightRadius: 30,
+      },
     }}>
     <Tab.Screen
       name="Home"
-      component={HomeNavigator}
+      component={HomeScreen}
       options={{
         tabBarLabel: 'Home',
         tabBarIcon: ({color, size}) => (
@@ -32,33 +48,37 @@ const AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="Claims"
-      component={ClaimsScreen}
+      name="Activity"
+      component={ActivityScreen}
       options={{
-        tabBarLabel: 'Claims',
+        tabBarLabel: 'Activity',
         tabBarIcon: ({color, size}) => (
-          <MaterialCommunityIcons name="cards" color={color} size={size} />
+          <MaterialCommunityIcons name="bell" color={color} size={size} />
         ),
       }}
     />
     <Tab.Screen
       name="Bank"
-      component={BankScreen}
+      component={TeamsScreen}
       options={{
-        tabBarLabel: 'Bank',
+        tabBarLabel: 'Teams',
         tabBarIcon: ({color, size}) => (
-          <MaterialCommunityIcons name="bank" color={color} size={size} />
+          <MaterialCommunityIcons
+            name="account-group"
+            color={color}
+            size={size}
+          />
         ),
       }}
     />
     <Tab.Screen
-      name="Profile"
-      component={ProfileNavigator}
+      name="Chats"
+      component={ChatsScreen}
       options={{
-        tabBarLabel: 'Profile',
+        tabBarLabel: 'Chats',
         tabBarIcon: ({color, size}) => (
           <MaterialCommunityIcons
-            name="human-greeting"
+            name="message-reply-text"
             color={color}
             size={size}
           />
@@ -67,5 +87,18 @@ const AppNavigator = () => (
     />
   </Tab.Navigator>
 );
+
+const AppNavigator = () => {
+  return (
+    <Drawer.Navigator
+      initialRouteName="App"
+      screenOptions={{headerShown: false}}
+      drawerContent={() => {
+        return <DrawerScreen />;
+      }}>
+      <Drawer.Screen name="App" component={TabsNavigator} />
+    </Drawer.Navigator>
+  );
+};
 
 export default AppNavigator;

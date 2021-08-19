@@ -21,6 +21,7 @@ const colors = {
   mainIcon: '#FC6D3F',
   cardBorder: '#F5F5F5',
   yellow: '#c4c406',
+  tabBackground: '#0a2f41',
 };
 
 export default colors;

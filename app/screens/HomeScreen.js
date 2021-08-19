@@ -25,16 +25,6 @@ const HomeScreen = ({navigation}) => {
           source={require('../assets/images/2.png')}
           style={styles.banner}
         />
-        <CustomButton
-          title="Get Started"
-          onPress={() => navigation.navigate('Login')}
-        />
-        <CustomButton
-          title="Sign in"
-          color="white"
-          textColor="primary"
-          onPress={() => navigation.navigate('Login')}
-        />
       </View>
     </LinearGradient>
   );
