@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  ScrollView,
   View,
   Text,
   StyleSheet,
@@ -9,9 +8,8 @@ import {
   TextInput,
 } from 'react-native';
 
-import CheckBox from '@react-native-community/checkbox';
 import LinearGradient from 'react-native-linear-gradient';
-// import Logo from '../app/assets/images/Favicon.png'
+
 import colors from './../config/colors';
 import CustomButton from '../components/CustomButton';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';

@@ -1,15 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import CustomNavbar from '../components/CustomNavbar';
+// import CustomNavbar from '../components/CustomNavbar';
 
 import colors from './../config/colors';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 const HomeScreen = ({navigation}) => {
-  const handlePress = () => {
-    navigation.toggleDrawer();
-  };
+  // const handlePress = () => {
+  //   navigation.toggleDrawer();
+  // };
   return (
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}

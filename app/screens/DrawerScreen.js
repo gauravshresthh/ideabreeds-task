@@ -33,7 +33,7 @@ const DrawerScreen = () => {
       </View>
       <Divider />
       <View style={styles.row}>
-        <View style={styles.circle}></View>
+        <View style={styles.circle} />
         <Text style={styles.status}>Available</Text>
       </View>
       <Divider />

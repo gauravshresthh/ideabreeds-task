@@ -1,19 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import CustomNavbar from '../components/CustomNavbar';
 
 import colors from './../config/colors';
 
-const ActivityScreen = ({navigation}) => {
-  const handlePress = () => {
-    navigation.toggleDrawer();
-  };
+const ActivityScreen = () => {
   return (
     <LinearGradient
       colors={['#eafffd', '#4cc1d4', '#129aa2']}
       style={styles.linearGradient}>
-      {/* <CustomNavbar onPress={handlePress} title="Activity" /> */}
       <View style={styles.container}>
         <Image
           source={require('../assets/images/logo.png')}
